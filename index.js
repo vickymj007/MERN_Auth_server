@@ -7,6 +7,7 @@ const app = express()
 const cors = require('cors')
 require('dotenv').config()
 
+//cors options
 const corsOptions = {
     origin: true, 
     credentials: true, 
@@ -21,6 +22,11 @@ app.use('/uploads', express.static('uploads'))
 // routes
 app.use('/api',userRoutes)
 app.use('/api',uploadRoutes)
+
+app.get('/',(req,res)=>{
+    res.status(200).json({
+        msg:"Welcome to MERN Authentication API"})
+})
 
 
 //db
